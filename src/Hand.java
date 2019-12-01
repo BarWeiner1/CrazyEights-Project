@@ -127,6 +127,11 @@ public class Hand {
         }
         hand = newHand;
     }
+
+    /**
+     * Returns a string Representation of all the cards in the hand
+     * Loops Through all of Them
+     */
     public String toString() {
     	String str= "";
     	for(int i=0; i< getCardCount(); i++) {

@@ -1,13 +1,21 @@
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Template for Creating a CrazyEightsGame
+ * Creates New Hand for player and Computer
+ * Creates a new Deck for game
+ */
 public class CrazyEightsGame {
 	private Hand myHand= new Hand();
 	private Hand computerHand= new Hand();
 	private Deck gameDeck= new Deck();
-	
-	
-	
+
+
+	/**
+	 * Game Loop For the Entire Game
+	 * Simulates playing rounds
+	 */
 	public void playRound() {
 		gameDeck.shuffle();
 		for(int i=0; i<8; i++) {
@@ -126,6 +134,10 @@ public class CrazyEightsGame {
 		}
 		
 	}
+	/**
+	 * Checks if there is a possibility to play multiple cards
+	 * Returns a boolean
+	 */
 	public boolean checkMultiple(int[] indexes, Hand myHand, Card topCard) {
 		boolean firstCard=false;
 		for(int i=0; i<indexes.length; i++) {
@@ -154,7 +166,11 @@ public class CrazyEightsGame {
 		}
 		return true;
 	}
-	
+	/**
+	 * Allows the user to play multiple cards at once
+	 * Takes in an int of indexes which the player wants to use
+	 * Returns a card
+	 */
 	public Card playMultiple(Hand myMand, Card topCard, int[] indexes) {
 		for(int i=0; i<indexes.length; i++) {
 			if(myHand.getCard(indexes[i]).getValue() == topCard.getValue() || myHand.getCard(indexes[i]).getSuit() == topCard.getSuit()) {
@@ -283,8 +299,10 @@ public class CrazyEightsGame {
 		return zero;
 		
 	}
-	
-	
+
+	/**
+	 *Checks if Cards have the same suit or same Value
+	 */
 	 public boolean compareCards(Card myCard, Card topCard) {
 		 if(myCard.getSuit()== topCard.getSuit()) {
 			 return true;
@@ -296,7 +314,10 @@ public class CrazyEightsGame {
 			 return false;
 		 }
 	 }
-
+	/**
+	 * Checks if a card in the players hand has the same value as the top card
+	 * Checks if any cards are playable
+	 */
 	public boolean compareValues(Hand myHand, Card dealtCard) {
 		boolean playableCard=false;
 		for(int i=0; i<myHand.getCardCount(); i++) {
@@ -306,6 +327,10 @@ public class CrazyEightsGame {
 		}
 		return playableCard;
 	}
+	/**
+	 * Checks if a card in the players hand has the same suit as the top card
+	 * Checks if any cards are playable
+	 */
 	public boolean compareSuits(Hand myHand, Card dealtCard) {
 		boolean playableCard=false;
 		for(int i=0; i<myHand.getCardCount(); i++) {
@@ -315,6 +340,11 @@ public class CrazyEightsGame {
 		}
 		return playableCard;
 	}
+	/**
+	 * Part of the thinking process of the Computer
+	 * Checks what the most occuring suit is and reports back to Computer
+	 * Helps AI make a decision on action
+	 */
 	public int mostCardsOfSuit(Hand computerHand, Card topCard) {
 		int [] countSuits= new int[4];
 		for(int i=0; i<computerHand.getCardCount(); i++) {
@@ -341,6 +371,12 @@ public class CrazyEightsGame {
 		return maxSuit;
 		
 	}
+	/**
+	 * Allows the Computer to think using a variety of checks to make an informed decision
+	 * Utilizes strategies to maximize output
+	 * Ends up returning a card which the Computer Decided to play
+	 * This becomes the top hand
+	 */
 	public Card AIPlayRound(Hand computerHand, Card topCard ) {
 		int counter=0;
 		while(!compareValues(computerHand, topCard) && !compareSuits(computerHand, topCard) && counter<3) {
