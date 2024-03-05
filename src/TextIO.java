@@ -804,15 +804,15 @@ public class TextIO {
         boolean ans = false;
         while (true) {
             String s = getWord();
-            if ( s.equalsIgnoreCase("true") || s.equalsIgnoreCase("t") ||
-                    s.equalsIgnoreCase("yes")  || s.equalsIgnoreCase("y") ||
-                    s.equals("1") ) {
+            if ( "true".equalsIgnoreCase(s) || "t".equalsIgnoreCase(s) ||
+                    "yes".equalsIgnoreCase(s)  || "y".equalsIgnoreCase(s) ||
+                    "1".equals(s) ) {
                 ans = true;
                 break;
             }
-            else if ( s.equalsIgnoreCase("false") || s.equalsIgnoreCase("f") ||
-                    s.equalsIgnoreCase("no")  || s.equalsIgnoreCase("n") ||
-                    s.equals("0") ) {
+            else if ( "false".equalsIgnoreCase(s) || "f".equalsIgnoreCase(s) ||
+                    "no".equalsIgnoreCase(s)  || "n".equalsIgnoreCase(s) ||
+                    "0".equals(s) ) {
                 ans = false;
                 break;
             }
