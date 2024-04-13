@@ -1,5 +1,6 @@
 
 
+import io.github.pixee.security.BoundedLineReader;
 import java.io.*;
 import java.util.IllegalFormatException;
 import java.util.regex.Matcher;
@@ -968,7 +969,7 @@ public class TextIO {
         
     private static void fillBuffer() {    // Wait for user to type a line and press return,
         try {
-            buffer = in.readLine();
+            buffer = BoundedLineReader.readLine(in, 5_000_000);
         }
         catch (Exception e) {
             if (readingStandardInput)
