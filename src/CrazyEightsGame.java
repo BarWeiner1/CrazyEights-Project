@@ -30,10 +30,10 @@ public class CrazyEightsGame {
 		
 		System.out.println("Your cards for this round are " + myHand.toString());
 		String sortChoice=askToSort();
-		if(sortChoice.equals("value")){
+		if("value".equals(sortChoice)){
 			myHand.sortByValue();
 		}
-		if(sortChoice.equals("suit")) {
+		if("suit".equals(sortChoice)) {
 			myHand.sortBySuit();
 		}
 		while(computerHand.getCardCount()!=0 && myHand.getCardCount()!=0) {
@@ -59,10 +59,10 @@ public class CrazyEightsGame {
 			}
 			if(playerCardCounter<3) {
 				
-				if(sortChoice.equals("value")){
+				if("value".equals(sortChoice)){
 					myHand.sortByValue();
 				}
-				if(sortChoice.equals("suit")) {
+				if("suit".equals(sortChoice)) {
 					myHand.sortBySuit();
 				}
 				if(playerCardCounter>=1) {
@@ -73,7 +73,7 @@ public class CrazyEightsGame {
 				System.out.println("Would you like to play multiple cards, yes or no; anyting else will be treated as no");
 				String choiceMultipleCard= TextIO.getlnString();
 				choiceMultipleCard.toLowerCase();
-				if(choiceMultipleCard.equals("yes")) {
+				if("yes".equals(choiceMultipleCard)) {
 					System.out.println("How many cards would you like to play");
 					int numberCardsToPlay= TextIO.getlnInt();
 					int [] multipleCardsPlayer= new int[numberCardsToPlay];
@@ -203,19 +203,19 @@ public class CrazyEightsGame {
 		while(changedSuit==false) {
 			String suitChoice= TextIO.getlnString();
 			suitChoice=suitChoice.toLowerCase();
-			if(suitChoice.equals("spades")) {
+			if("spades".equals(suitChoice)) {
 				topCard= new Card(8, 0);
 				changedSuit=true;
 			}
-			else if(suitChoice.equals("hearts")) {
+			else if("hearts".equals(suitChoice)) {
 				topCard= new Card(8, 1);
 				changedSuit=true;
 			}
-			else if(suitChoice.equals("diamonds")) {
+			else if("diamonds".equals(suitChoice)) {
 				topCard= new Card(8, 2);
 				changedSuit=true;
 			}
-			else if(suitChoice.equals("clubs")) {
+			else if("clubs".equals(suitChoice)) {
 				topCard= new Card(8, 3);
 				changedSuit=true;
 			}
@@ -234,10 +234,10 @@ public class CrazyEightsGame {
 			System.out.println("Would you like to sort your cards by value or suit");
 			sortChoice= TextIO.getlnString();
 			sortChoice= sortChoice.toLowerCase();
-			if(sortChoice.equals("value")) {
+			if("value".equals(sortChoice)) {
 				chosenSortMethod=true;
 			}
-			else if(sortChoice.equals("suit")) {
+			else if("suit".equals(sortChoice)) {
 				chosenSortMethod=true;
 			}
 			else {
